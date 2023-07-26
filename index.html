@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da velha</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="background-container"></div>
+
+<div class="alerts">
+    <div class="alerts-area">
+        <div class="popUp-welcome">
+            <div class="popUp-model">
+                <div class="popTitle">Seja bem vindo(a)!<br/> Vamos jogar?</div>
+                <div class="popDescription">
+                    <p>Lembre-se: O coragem sempre será o X</p>
+                    <img class="imgWelcome" src="assets/images/cao.png">
+                        <h1>= X</h1>
+                </div>
+            </div>
+            <button id="start-button">Iniciar</button>
+        </div>
+        <div class="popUp-game-Mode">
+            <div class="popUp-model">
+                <div class="popTitle">Escolha o modo:</div>
+                <div class="popDescription">
+                    <p>E ai, qual vai ser o modo?<br/><br/>Player vs Player 🤝 ou Jogar contra IA?🤖<em>(em beta)</em></p>
+                </div>
+            </div>
+            <div class="button-footer">
+                <button id="player-button">vs. Player</button>
+                <button id="iA-button">vs. IA</button>
+            </div>
+        </div>
+        <div class="popUp-prize-draw">
+            <div class="popUp-model">
+                <div class="popTitle">Quem começa é o...</div>
+                <div class="popDescription-prize">
+                    <p>Eustácio</p>
+                    <img id="imgPrize" src="assets/images/eustacio.png">
+                </div>
+            </div>
+            <button id="play-button">Play</button>
+        </div>
+        <div class="popUp-match-result">
+            <div class="popUp-model">
+                <div class="popTitle-match-result">Ganhador da rodada!</div>
+                <div class="popDescription-match-result">
+                    <p>WIN --- ☆</p>
+                    <img class="imgMatch" src="assets/images/cao.png">
+                    <p>gostaria de jogar mais uma, ou finalizar a partida?</p>
+                </div>
+            </div>
+            <div class="button-footer">
+                <button id="more-match-button">+1</button>
+                <button id="end-button">Finalizar</button>
+            </div>
+        </div>
+        <div class="popUp-end-game">
+            <div class="popUp-model">
+                <div class="popTitle">FIM DE JOGO!!!</div>
+                <div class="popDescription-end-game">
+                    <p>Parabéns!</p>
+                    <img class="imgWinner" src="assets/images/eustacio.png">
+                    <p>Eustácio WINNER 🏆</p>
+                </div>
+            </div>
+                <button id="reset-button">Jogar Novamente!</button>
+                <div class="footer-popUp">
+                    <h1>E ai, curtiu!?
+                    <div id="donation-button"><img src="assets/images/qrcode2.png"></div>
+                </div>
+        </div>
+        <div class="popUp-donation">
+            <div class="popUp-model-donation">
+                <div class="popTitle-donation">PIX DONATION</div>
+                <div class="popDescription-donation">
+                    <img class="imgDonation" src="assets/images/qrcode.jpeg">
+                    <p>E ai, gostou? Caso queira apoiar esse projeto de alguma forma, deixei meu pix aqui!! Assim você está me ajudando a custear os próximos cursos que pretendo fazer. Muito Obrigado!😀 </p>
+                </div>
+            </div>
+            <button id="back-button">Voltar</button>
+        </div>
+        <div class="popUp-donation-2">
+            <div class="popUp-model-donation">
+                <div class="popTitle-donation">PIX DONATION</div>
+                <div class="popDescription-donation">
+                    <img class="imgDonation" src="assets/images/qrcode.jpeg">
+                    <p>E ai, gostou? Caso queira apoiar esse projeto de alguma forma, deixei meu pix aqui!! Assim você está me ajudando a custear os próximos cursos que pretendo fazer. Muito Obrigado!😀 </p>
+                </div>
+            </div>
+            <button id="back-button-2">Voltar</button>
+        </div>
+               
+    </div>
+</div>
+    <div class="container">
+        <div class="header">
+            <h1>Jogo da</h1>
+            <img src="assets/images/muriel.png" alt="">
+        </div>
+        <div class="controls">
+            <div class="draw">
+                <p>Empates: 0</p>
+            </div>
+            <div class="buttons">
+                <p>música </p>
+                <div class="toggle-button" onclick="toggleState()">
+                    <div class="slider"></div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="gaming-area">
+            <div class="scoreboard">
+                <img class="player1" src="assets/images/cao.png">
+                <h1>-</h1>
+                <p>x</p>
+                <h1>-</h1>
+                <img class="player2" src="assets/images/eustacio.png">
+            </div>
+            <div class="gaming-board">
+                <div class="area">
+                    <div data-item="a1" class="item b r"></div>
+                    <div data-item="a2" class="item b r"></div>
+                    <div data-item="a3" class="item b"></div>
+            
+                    <div data-item="b1" class="item b r"></div>
+                    <div data-item="b2" class="item b r"></div>
+                    <div data-item="b3" class="item b"></div>
+            
+                    <div data-item="c1" class="item r"></div>
+                    <div data-item="c2" class="item r"></div>
+                    <div data-item="c3" class="item"></div>
+                </div>  
+            </div>
+            <div class="next-player">
+                <p>próximo a jogar:</p>
+                <img id="next-player" src="assets/images/muriel.png">
+                
+            </div>
+        </div>
+        <div class="buttons2">
+            <div id="donation-button-footer"><img src="assets/images/qrcode2.png"></div>
+        </div>
+        <footer>
+            <div class="footer">
+                <div class="developed"><h1>© 2023 - Developed by    <a href="https://www.instagram.com/wesleys.7/?hl=pt-br" target="_blank"><em>Wesley Souza</em>.</a></h1>
+                </div>
+                <a href="https://www.instagram.com/wesleys.7/?hl=pt-br" target="_blank"><img src="assets/images/instalogo.png"></a>
+            </div>
+        </footer>
+    </div>
+    
+
+    <audio volume="0.3" id="background-music" src="assets/sounds/mixkit-kids-786.mp3" type="audio/mpeg"></audio>
+    <audio volume="0.3" id="pop-sound-Effect" src="assets/sounds/Pop Bubble Sound Effect 2022 (128 kbps).mp3" type="audio"></audio>
+    </audio>
+
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
