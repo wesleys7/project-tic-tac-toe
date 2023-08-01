@@ -222,6 +222,7 @@ function itemClick(event) {
   
   if (iaOn == true && playing && square[item] === '') {
     square[item] = player
+    playing = false
     renderSquare()
     if (hasWon == true ){ iaOn = false, nextPlayerAfterWin(), nextPlayer()
     } else {
@@ -235,8 +236,9 @@ function itemClick(event) {
       },500)
     } else {
       setTimeout(() => {
-        makeAIMove();
+        playing = true
         iaOn = true
+        makeAIMove();
       }, 500);
       renderSquare()
       nextPlayer()
